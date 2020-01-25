@@ -1,6 +1,12 @@
 import 'dart:io';
+import 'planetary_system.dart';
 
 class SpaceAdventure {
+
+  PlanetarySystem planetarySystem;
+
+  SpaceAdventure({this.planetarySystem});
+
   void start() {
     printGreeting();
     printIntroduction(responseToPrompt('What is your name?'));
@@ -13,17 +19,17 @@ class SpaceAdventure {
   }
 
   void printGreeting() {
-    print('Welcome to the Solar System!');
+    print('Welcome to the ${planetarySystem.name}!');
     print('There are 8 planets to explore.');
+  }
+
+  String responseToPrompt(String prompt) {
+  print(prompt);
+  return stdin.readLineSync();
   }
 
   void printIntroduction(String name) {
     print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
-  }
-
-  String responseToPrompt(String prompt) {
-    print(prompt);
-   return stdin.readLineSync();
   }
 
   void travelToRandomPlanet() {
