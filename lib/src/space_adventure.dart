@@ -39,6 +39,21 @@ class SpaceAdventure {
     print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
   }
 
+  bool promptForRandomOrSpecificDestination(String prompt) {
+    String answer;
+    while (answer != 'Y' && answer != 'N') {
+      answer = responseToPrompt(prompt).toUpperCase();
+      if (answer == 'Y') {
+        return true;
+      } else if (answer == 'N') {
+        return false;
+      } else {
+        print('Sorry, I didn\'t get that');
+      }
+    }
+    return false;
+  }
+
   void travel(bool randomDestination) {
     Planet planet;
     if (randomDestination) {
@@ -56,18 +71,4 @@ class SpaceAdventure {
     print('Arrived at ${planet.name}. ${planet.description}');
   }
 
-  bool promptForRandomOrSpecificDestination(String prompt) {
-    String answer;
-    while (answer != 'Y' && answer != 'N') {
-      answer = responseToPrompt(prompt);
-      if (answer == 'Y') {
-        return true;
-      } else if (answer == 'N') {
-        return false;
-      } else {
-        print('Sorry, I didn\'t get that');
-      }
-    }
-    return false;
-  }
 }
