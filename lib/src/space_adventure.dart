@@ -3,7 +3,7 @@ import 'planetary_system.dart';
 
 class SpaceAdventure {
 
-  PlanetarySystem planetarySystem;
+  final PlanetarySystem planetarySystem;
 
   SpaceAdventure({this.planetarySystem});
 
@@ -20,7 +20,7 @@ class SpaceAdventure {
 
   void printGreeting() {
     print('Welcome to the ${planetarySystem.name}!');
-    print('There are 8 planets to explore.');
+    print('There are ${planetarySystem.numberOfPlanets} planets to explore.');
   }
 
   String responseToPrompt(String prompt) {
@@ -32,23 +32,25 @@ class SpaceAdventure {
     print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
   }
 
-  void travelToRandomPlanet() {
+  void travelToRandomDestination() {
     print(
       'Ok! Traveling to Mercury...\n'
       'Arrived at Mercury. A very hot planet, closest to the sun.'
     );
   }
 
-  void travelTo(String planetName) {
-    print(
-      'Traveling to $planetName...\n'
-      'Arrived at $planetName. A very cold planet, furthest from the sun.'
-    );
+  void travelTo(String destination) {
+    print('Traveling to $destination...');
+    planetarySystem.planets.forEach( (planet) {
+      if (planet.name == destination) {
+        print('Arrived at ${planet.name}. ${planet.description}');
+      }
+    });
   }
 
-  void travel(bool randomDestingation) {
-    if (randomDestingation) {
-      travelToRandomPlanet();
+  void travel(bool randomDestination) {
+    if (randomDestination) {
+      travelToRandomDestination();
     } else {
       travelTo(responseToPrompt('Name the planet you would like to visit.'));
     }
