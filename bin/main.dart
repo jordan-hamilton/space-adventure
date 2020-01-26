@@ -13,7 +13,7 @@ List<Planet> mockPlanets() {
   return [
     Planet(
       name: 'Mercury',
-      description: 'A very hot planet, closest to the sun'
+      description: 'A very hot planet, closest to the sun.'
     ),
     Planet(
       name: 'Venus',

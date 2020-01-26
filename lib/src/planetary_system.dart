@@ -7,4 +7,5 @@ class PlanetarySystem {
   PlanetarySystem({this.name = 'Unnamed System', this.planets = const [] });
 
   int get numberOfPlanets => planets.length;
+  bool get hasPlanets => planets.isNotEmpty;
 }
