@@ -38,7 +38,7 @@ Future<String> getJsonData(String filePath) async {
   return data;
 }
 
-Future<Map> getSystemData(String filePath) async {
+Future<Map<String, dynamic>> getSystemData(String filePath) async {
     final jsonData = jsonDecode(
       await getJsonData(filePath)
     );
