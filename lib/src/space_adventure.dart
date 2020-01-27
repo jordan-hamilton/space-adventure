@@ -42,7 +42,7 @@ class SpaceAdventure {
   bool promptForRandomOrSpecificDestination(String prompt) {
     String answer;
     while (answer != 'Y' && answer != 'N') {
-      answer = responseToPrompt(prompt).toUpperCase();
+      answer = responseToPrompt(prompt);
       if (answer == 'Y') {
         return true;
       } else if (answer == 'N') {
