@@ -63,7 +63,12 @@ class SpaceAdventure {
         responseToPrompt('Name the planet you would like to visit.')
       );
     }
-    travelTo(planet);
+
+    if (planet.notNull) {
+      travelTo(planet);
+    } else {
+      print('Ah, that planet isn\'t in this system.');
+    }
   }
 
   void travelTo(Planet planet) {
